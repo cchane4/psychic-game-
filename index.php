@@ -1,1 +1,1 @@
-<?php include_once("cchane4/Northwestern/psychic-game-.html"); ?>
+<?php include_once("psychic-game-.html"); ?>
