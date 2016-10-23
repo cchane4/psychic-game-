@@ -12,8 +12,8 @@
 <div id= "losses">losses: 0</div>
 <div id = "guessLeft">guesses left: 9</div>  
 
-<div id="guessed"></div>
- <div id="game"></div>
+<div id="guessed">letters guessed: </div>
+ 
 <script type="text/javascript"> 
 
 
@@ -25,7 +25,7 @@
 	var guessesLeft = 9;
 	var computerguess = "";
 	var arrayGuess = [];
-	//var html = "<p>wins: " + wins + "</p>" + "<p>losses: " + losses + "<p>" + "<p> guess left:  " + guessesLeft  + "</p>"; 
+	 
 	var randomNumber = function ( ){
 	computerguess = options[Math.floor(Math.random()*options.length)]; 
 		console.log("new comp guess " + computerguess);  
@@ -35,52 +35,37 @@
 		var userguess = String.fromCharCode(event.keyCode).toLowerCase(); 
 			console.log(userguess);
 			arrayGuess.push(" " + userguess);
-			// printguess();
 			console.log(arrayGuess);
-			document.getElementById('guessed').innerHTML = arrayGuess;
-
-			
+			document.getElementById('guessed').innerHTML = "letters guessed " + arrayGuess;
 
 	if (userguess == computerguess){ 
 		wins++; 
-		document.getElementById('win').innerHTML = "wins: " + wins;
-		arrayGuess.length = 0;
-		 
+		document.getElementById('win').innerHTML = "wins: " + wins; 
 		console.log(wins); 	
 		randomNumber(); 
+		arrayGuess.length = 0;
 		init();  
 	} 
 	else if (userguess != computerguess){  
 		guessesLeft--;
 		document.getElementById('guessLeft').innerHTML = "guesses left: " + guessesLeft;  
 		console.log(guessesLeft);
-		document.getElementById('guessed').innerHTML = arrayGuess;
+		document.getElementById('guessed').innerHTML = "letters guessed: " + arrayGuess;
 
 	}
 	if (guessesLeft == 0){ 
+		arrayGuess.length = 0; 
 		losses++;
 		document.getElementById('losses').innerHTML = "losses: " + losses;
 		init(); 
 	}
-	
-
-
-	document.querySelector('#game').innerHTML = html; 
+	 
 	} 
 
 	var init = function () { 
-		// wins = 0; 
-		// losses = 0; 
 		guessesLeft = 9; 
 	}
-	//if (guessesLeft == 0);{ init(); */
-	// var printguess = function() {
-	// 	for(i = 0; i < allguess.length; i++){
-	// 		var div = document.getElementById('guessed');
-	// 		div.innerHTML = allguess[i];
-	// 	}
-
-	// }	
+	
 
 
 
